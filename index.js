@@ -5,10 +5,10 @@ let screenValue = '';
 for(item of buttons)
 {
     item.addEventListener('click' , (e) => {
+        audio.play();
         buttonText = e.target.innerText;
         console.log("Button text is ", buttonText);
-        audio.play();
-        
+  
         if(buttonText == 'x')
         {
             buttonText = '*';
@@ -28,11 +28,13 @@ for(item of buttons)
         }
         else if(buttonText == '=')
         {
-            screen.value = eval(screenValue);
+            screenValue = eval(screenValue);
+            screen.value = screenValue;
         }
         else if(buttonText == 'backspace')
         {
-            screen.value = screen.value.slice(0, - 1);
+            screenValue = screen.value.slice(0, -1);
+            screen.value = screenValue;
         }
         else if(buttonText == '😎')
         {
